@@ -1,0 +1,54 @@
+* {
+    margin: 0;
+    padding: 0;
+    color: white;
+    text-decoration: none;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    background-color: #242424;
+    position: relative;
+}
+
+footer {
+    background-color: #253036;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    text-align: center;
+    align-self: center;
+    justify-content: center;
+    padding: 15px 0px;
+}
+
+.ctn {
+    display: flex;
+    margin: 0 auto;
+    padding: 0px 10px;
+    max-width: 1120px;
+}
+
+#principal {
+    width: 100%;
+    height: 100%;
+}
+
+@media screen and (max-width: 992px) {
+    .ctn {
+        max-width: 90%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .ctn {
+        max-width: 85%;
+    }
+}
+
+@media screen and (max-width: 468px) {
+    .ctn {
+        max-width: 300px;
+    }
+}
