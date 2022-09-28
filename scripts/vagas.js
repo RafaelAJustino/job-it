@@ -79,10 +79,10 @@ const vagas = [
     },
 ]
 
-function showJobs(){
-    const vagasSec = document.getElementById('vagas');
+function showJobs() {
+    const vagasSec = document.getElementById('vagas-ctn');
 
-    for (const x of vagas){
+    for (const x of vagas) {
         const card = document.createElement('div');
         card.classList.add('card');
 
@@ -96,42 +96,42 @@ function showJobs(){
 
         const empresa = document.createElement('h2');
         empresa.classList.add('empresa');
-        empresa.innerHTML = 'Empresa: ' + x.empresa;
+        empresa.innerHTML = x.empresa;
 
         const cargo = document.createElement('p');
         cargo.classList.add('cargo');
-        cargo.innerHTML = 'Cargo: ' + x.cargo;
+        cargo.innerHTML = x.cargo;
 
         const email = document.createElement('p');
         email.classList.add('email');
-        email.innerHTML = 'E-mail: ' + x.email
+        email.innerHTML = x.email
 
         const telefone = document.createElement('p');
         telefone.classList.add('telefone');
-        telefone.innerHTML = 'Telefone: ' + x.telefone;
+        telefone.innerHTML = x.telefone;
 
         const descricao = document.createElement('p');
         descricao.classList.add('descricao');
-        descricao.innerHTML = 'Descrição: ' + x.descricao;
+        descricao.innerHTML = x.descricao;
 
         const requisitos = document.createElement('p');
         requisitos.classList.add('requisitos');
-        requisitos.innerHTML = 'Requisitos: ' + x.requisitos;
+        requisitos.innerHTML = x.requisitos;
 
         const salario = document.createElement('p');
         salario.classList.add('salario');
-        salario.innerHTML = 'Salario: ' + x.salario;
+        salario.innerHTML = x.salario;
 
         const tipo = document.createElement('p');
         tipo.classList.add('tipo');
-        tipo.innerHTML = 'Tipo de Vaga: ' + x.tipo;
+        tipo.innerHTML = x.tipo;
 
         const beneficios = document.createElement('p');
         beneficios.classList.add('beneficio');
-        beneficios.innerHTML = 'Beneficios: ' + x.beneficios;
+        beneficios.innerHTML = x.beneficios;
 
         vagasSec.append(card);
-        
+
         card.append(front);
         card.append(back);
 
@@ -140,14 +140,27 @@ function showJobs(){
         front.append(cargo);
         front.append(tipo);
 
-        back.append(empresa);
-        back.append(tipo);
-        back.append(cargo);
+        // back.append(empresa);
+        // back.append(tipo);
+        // back.append(cargo);
         back.append(email);
         back.append(telefone);
         back.append(descricao);
         back.append(requisitos);
         back.append(salario);
         back.append(beneficios);
+    }
+
+    const cardHover = document.getElementsByClassName('card');
+
+    for (const x of cardHover) {
+        x.addEventListener('mouseenter', (e) => {
+            e.target.children[1].className = ('back active')
+            // console.log(e.target.children[1].className);
+        });
+        x.addEventListener('mouseleave', (e) => {
+            e.target.children[1].className = ('back')
+            console.log(e.target.children[1].className);
+        });
     }
 }
