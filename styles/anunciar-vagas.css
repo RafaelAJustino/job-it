@@ -1,7 +1,17 @@
 .teste{
     display: flex;
     justify-content: center;
-    vertical-align: middle;
     width: 100%;
     height: 100%;
+}
+
+.top{
+    width: 100%;
+    height: 300px;
+    top: 0%;
+}
+
+.metade{
+    margin-right: 15px;
+    width: 50%
 }
