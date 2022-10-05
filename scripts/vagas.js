@@ -11,6 +11,7 @@ const vagas = [
         beneficios: 'beneficios 1 beneficios beneficios beneficios beneficios beneficios',
         aitva: true,
         moderada: true,
+        img: '../img/americanas.webp'
     },
     {
         empresa: 'empresa 2',
@@ -24,6 +25,7 @@ const vagas = [
         beneficios: 'beneficios 2 beneficios beneficios beneficios beneficios beneficios',
         aitva: true,
         moderada: true,
+        img: '../img/havam.webp'
     },
     {
         empresa: 'empresa 3',
@@ -37,6 +39,7 @@ const vagas = [
         beneficios: 'beneficios 3 beneficios beneficios beneficios beneficios beneficios',
         aitva: true,
         moderada: true,
+        img: '../img/honda.jpg'
     },
     {
         empresa: 'empresa 4',
@@ -50,6 +53,7 @@ const vagas = [
         beneficios: 'beneficios 4 beneficios beneficios beneficios beneficios beneficios',
         aitva: true,
         moderada: true,
+        img: '../img/jhon-deere.webp'
     },
     {
         empresa: 'empresa 5',
@@ -63,6 +67,7 @@ const vagas = [
         beneficios: 'beneficios 5 beneficios beneficios beneficios beneficios beneficios',
         aitva: true,
         moderada: true,
+        img: '../img/pernabucanas.webp'
     },
     {
         empresa: 'empresa 6',
@@ -76,6 +81,7 @@ const vagas = [
         beneficios: 'beneficios 6 beneficios beneficios beneficios beneficios beneficios',
         aitva: true,
         moderada: true,
+        img: '../img/wolksvagen.jpeg'
     },
 ]
 
@@ -85,14 +91,21 @@ function showJobs() {
     for (const x of vagas) {
         const card = document.createElement('div');
         card.classList.add('card');
+        card.style.backgroundImage = `url(${x.img})`;
+        card.style.backgroundRepeat = 'no-repeat';
+        card.style.backgroundSize = 'cover';
 
         const front = document.createElement('div');
         front.classList.add('front');
+
+        const contentFront = document.createElement('div');
+        contentFront.classList.add('content-front');
+
         const back = document.createElement('div');
         back.classList.add('back');
 
-        const img = document.createElement('img');
-        img.classList.add('img')
+        // const img = document.createElement('img');
+        // img.classList.add('img')
 
         const empresa = document.createElement('h2');
         empresa.classList.add('empresa');
@@ -104,23 +117,23 @@ function showJobs() {
 
         const email = document.createElement('p');
         email.classList.add('email');
-        email.innerHTML = x.email
+        email.innerHTML = 'E-mail: ' + x.email
 
         const telefone = document.createElement('p');
         telefone.classList.add('telefone');
-        telefone.innerHTML = x.telefone;
+        telefone.innerHTML = 'Telefone: ' + x.telefone;
 
         const descricao = document.createElement('p');
         descricao.classList.add('descricao');
-        descricao.innerHTML = x.descricao;
+        descricao.innerHTML = 'Descrição: ' + x.descricao;
 
         const requisitos = document.createElement('p');
         requisitos.classList.add('requisitos');
-        requisitos.innerHTML = x.requisitos;
+        requisitos.innerHTML = 'Requisitos: ' + x.requisitos;
 
         const salario = document.createElement('p');
         salario.classList.add('salario');
-        salario.innerHTML = x.salario;
+        salario.innerHTML = 'Salário: R$ ' + x.salario;
 
         const tipo = document.createElement('p');
         tipo.classList.add('tipo');
@@ -128,17 +141,19 @@ function showJobs() {
 
         const beneficios = document.createElement('p');
         beneficios.classList.add('beneficio');
-        beneficios.innerHTML = x.beneficios;
+        beneficios.innerHTML = 'Benefícios: ' + x.beneficios;
 
         vagasSec.append(card);
 
         card.append(front);
         card.append(back);
 
-        front.append(img);
-        front.append(empresa);
-        front.append(cargo);
-        front.append(tipo);
+        // front.append(img);
+        front.append(contentFront)
+
+        contentFront.append(empresa);
+        contentFront.append(cargo);
+        contentFront.append(tipo);
 
         // back.append(empresa);
         // back.append(tipo);
