@@ -4,6 +4,7 @@ header {
     font-weight: bold;
     background-color: #44A5DB;
     padding: 20px 0px;
+    z-index: 100;
 }
 
 .h_ul {

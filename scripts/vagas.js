@@ -11,6 +11,7 @@ const vagas = [
         beneficios: 'beneficios 1 beneficios beneficios beneficios beneficios beneficios',
         aitva: true,
         moderada: true,
+        img: '../img/americanas.webp'
     },
     {
         empresa: 'empresa 2',
@@ -24,6 +25,7 @@ const vagas = [
         beneficios: 'beneficios 2 beneficios beneficios beneficios beneficios beneficios',
         aitva: true,
         moderada: true,
+        img: '../img/havam.webp'
     },
     {
         empresa: 'empresa 3',
@@ -37,6 +39,7 @@ const vagas = [
         beneficios: 'beneficios 3 beneficios beneficios beneficios beneficios beneficios',
         aitva: true,
         moderada: true,
+        img: '../img/honda.jpg'
     },
     {
         empresa: 'empresa 4',
@@ -50,6 +53,7 @@ const vagas = [
         beneficios: 'beneficios 4 beneficios beneficios beneficios beneficios beneficios',
         aitva: true,
         moderada: true,
+        img: '../img/jhon-deere.webp'
     },
     {
         empresa: 'empresa 5',
@@ -63,6 +67,7 @@ const vagas = [
         beneficios: 'beneficios 5 beneficios beneficios beneficios beneficios beneficios',
         aitva: true,
         moderada: true,
+        img: '../img/pernabucanas.webp'
     },
     {
         empresa: 'empresa 6',
@@ -76,31 +81,39 @@ const vagas = [
         beneficios: 'beneficios 6 beneficios beneficios beneficios beneficios beneficios',
         aitva: true,
         moderada: true,
+        img: '../img/wolksvagen.jpeg'
     },
 ]
 
-function showJobs(){
-    const vagasSec = document.getElementById('vagas');
+function showJobs() {
+    const vagasSec = document.getElementById('vagas-ctn');
 
-    for (const x of vagas){
+    for (const x of vagas) {
         const card = document.createElement('div');
         card.classList.add('card');
+        card.style.backgroundImage = `url(${x.img})`;
+        card.style.backgroundRepeat = 'no-repeat';
+        card.style.backgroundSize = 'cover';
 
         const front = document.createElement('div');
         front.classList.add('front');
+
+        const contentFront = document.createElement('div');
+        contentFront.classList.add('content-front');
+
         const back = document.createElement('div');
         back.classList.add('back');
 
-        const img = document.createElement('img');
-        img.classList.add('img')
+        // const img = document.createElement('img');
+        // img.classList.add('img')
 
         const empresa = document.createElement('h2');
         empresa.classList.add('empresa');
-        empresa.innerHTML = 'Empresa: ' + x.empresa;
+        empresa.innerHTML = x.empresa;
 
         const cargo = document.createElement('p');
         cargo.classList.add('cargo');
-        cargo.innerHTML = 'Cargo: ' + x.cargo;
+        cargo.innerHTML = x.cargo;
 
         const email = document.createElement('p');
         email.classList.add('email');
@@ -120,34 +133,49 @@ function showJobs(){
 
         const salario = document.createElement('p');
         salario.classList.add('salario');
-        salario.innerHTML = 'Salario: ' + x.salario;
+        salario.innerHTML = 'Salário: R$ ' + x.salario;
 
         const tipo = document.createElement('p');
         tipo.classList.add('tipo');
-        tipo.innerHTML = 'Tipo de Vaga: ' + x.tipo;
+        tipo.innerHTML = x.tipo;
 
         const beneficios = document.createElement('p');
         beneficios.classList.add('beneficio');
-        beneficios.innerHTML = 'Beneficios: ' + x.beneficios;
+        beneficios.innerHTML = 'Benefícios: ' + x.beneficios;
 
         vagasSec.append(card);
-        
+
         card.append(front);
         card.append(back);
 
-        front.append(img);
-        front.append(empresa);
-        front.append(cargo);
-        front.append(tipo);
+        // front.append(img);
+        front.append(contentFront)
 
-        back.append(empresa);
-        back.append(tipo);
-        back.append(cargo);
+        contentFront.append(empresa);
+        contentFront.append(cargo);
+        contentFront.append(tipo);
+
+        // back.append(empresa);
+        // back.append(tipo);
+        // back.append(cargo);
         back.append(email);
         back.append(telefone);
         back.append(descricao);
         back.append(requisitos);
         back.append(salario);
         back.append(beneficios);
+    }
+
+    const cardHover = document.getElementsByClassName('card');
+
+    for (const x of cardHover) {
+        x.addEventListener('mouseenter', (e) => {
+            e.target.children[1].className = ('back active')
+            // console.log(e.target.children[1].className);
+        });
+        x.addEventListener('mouseleave', (e) => {
+            e.target.children[1].className = ('back')
+            console.log(e.target.children[1].className);
+        });
     }
 }

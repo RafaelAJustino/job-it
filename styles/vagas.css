@@ -1,0 +1,53 @@
+#vagas {
+    padding-top: 100px;
+}
+
+#vagas-ctn {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    align-items: center;
+}
+
+#vagas-ctn .card {
+    width: 350px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-end;
+    border-radius: 8px;
+}
+
+#vagas-ctn .card .front {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    backdrop-filter: blur(10px);
+    /* background-color: rgba(63, 61, 86, .7); */
+}
+
+#vagas-ctn .card .front .content-front {
+    padding: 12px;
+}
+
+#vagas-ctn .card .back {
+    display: none;
+    padding: 12px;
+    backdrop-filter: blur(10px);
+    /* background-color: rgba(63, 61, 86, .7); */
+}
+
+.active {
+    display: flex !important;
+    gap: 3px;
+    flex-direction: column !important;
+    border-radius: 0 0 8px 8px;
+    /* align-items: center !important; */
+}
+
+@media screen and (max-width: 768px) {
+    #vagas-ctn .card {
+        width: 300px;
+    }
+}
