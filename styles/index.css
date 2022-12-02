@@ -1,0 +1,42 @@
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+button{
+    margin: 20px;
+    margin-top: 60px;
+    text-decoration: none;
+    text-transform: uppercase;
+    border: none;
+    width: 160px;
+    height: 50px;
+    font-size: 21px;
+    border-radius: 120px;
+}
+.texto{
+    margin: 50px;
+    width: 50%;
+    text-align: left;
+    text-transform: uppercase;
+    font-size: 39px;
+}
+
+.imagem-menu{
+    width: 50%;
+}
+
+.top-menu{
+    padding-top: 71%;
+}
+
+.anunciar{
+    background-color: #44A5DB;
+    color: white;
+}
+
+.vagas{
+    background-color: white;
+    color: #44A5DB;
+    text-decoration: none;
+}
