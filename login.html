@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="./styles/style.css">
+    <link rel="stylesheet" href="styles/login.css">
+    <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+
+    <title>Job.it</title>
+</head>
+
+<body>
+    <section id="principal">
+        <div class="ctn">
+            <h1 class="nome-empresa">Job.it</h1>
+            <div class="tela-login">
+                <form>
+                    <input type="text" placeholder="    Usuário" id="login">
+                    <br><br>
+                    <input type="password" placeholder="    Senha" id="senha">
+                    <br><br>
+                    <input type="submit" id="enviar" onclick="logar(); return false">
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function logar(){
+            var user = document.getElementById('login').value;
+            var senha = document.getElementById('senha').value;
+
+            if(user == 'admin' && senha == 'admin'){
+                alert('Logado');
+                //alterar o href para o cms
+                location.href = "index.html";
+            }
+            else{
+                alert('Login mal sucedido!')
+            }
+            
+        }
+    </script>
+
+</body>
+
+</html>
