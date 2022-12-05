@@ -1,21 +1,61 @@
-form {
-    padding-top: 20%;
+form{
     width: 50%;
-    padding-left: 25%;
-
+    padding: 23% 43% 9% 8%;;
+    position: absolute;
 }
 
-.container{
-    width: 100%;
+form label{
+    margin-left: 10px;
+}
+
+form input{
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.divHalf{
     display: flex;
     flex-direction: column;
+    width: 42%;
+    float: left;
+    margin-left: 5%;
+    padding: 10px;
 }
 
-.divHalf {
-    width: 100%;
+.divAll{
+    display: flex;
+    flex-direction: column;
+    width: 91%;
+    margin-left: 5%;
+    padding: 10px;
 }
 
-.divAll {
-    width: 100%;
-    display: grid;
+.divRadio{
+    margin-top: 37px;
+} 
+
+#divImagem{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#labelImagem  {
+    background-color: #44A5DB;
+    font-weight: bold;
+    border-radius: 10px;
+    color: white;
+    font-size: 1.5rem;
+    text-align: center;
+    padding: 15px;
+}
+
+#btImagem{
+    display: none;
+}
+
+#ilustracao{
+    position: absolute;
+    padding: 27% 13% 19% 18%;;
+    margin-left: 45%;
 }
