@@ -1,3 +1,5 @@
+const vagasStorage = 'vagasStorage'
+let getVagasStorage = JSON.parse(window.localStorage.getItem(vagasStorage)) || false;
 const vagas = [
     {
         empresa: 'empresa 1',
@@ -86,14 +88,19 @@ const vagas = [
 ]
 
 function showJobs() {
+    if (!getVagasStorage){
+        window.localStorage.setItem(vagasStorage, JSON.stringify(vagas));
+        getVagasStorage = JSON.parse(window.localStorage.getItem(vagasStorage));
+    }
+
     const vagasSec = document.getElementById('vagas-ctn');
 
-    for (const x of vagas) {
+    for (const x of getVagasStorage) {
         const card = document.createElement('div');
         card.classList.add('card');
-        card.style.backgroundImage = `url(${x.img})`;
-        card.style.backgroundRepeat = 'no-repeat';
-        card.style.backgroundSize = 'cover';
+        // card.style.backgroundImage = `url(${x.img})`;
+        // card.style.backgroundRepeat = 'no-repeat';
+        // card.style.backgroundSize = 'cover';
 
         const front = document.createElement('div');
         front.classList.add('front');
@@ -133,7 +140,7 @@ function showJobs() {
 
         const salario = document.createElement('p');
         salario.classList.add('salario');
-        salario.innerHTML = 'Salário: R$ ' + x.salario;
+        salario.innerHTML = 'Salário: ' +  (x.salario.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' }));
 
         const tipo = document.createElement('p');
         tipo.classList.add('tipo');
@@ -173,9 +180,9 @@ function showJobs() {
             e.target.children[1].className = ('back active')
             // console.log(e.target.children[1].className);
         });
-        x.addEventListener('mouseleave', (e) => {
-            e.target.children[1].className = ('back')
-            console.log(e.target.children[1].className);
-        });
+        // x.addEventListener('mouseleave', (e) => {
+        //     e.target.children[1].className = ('back')
+        //     console.log(e.target.children[1].className);
+        // });
     }
 }

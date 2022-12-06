@@ -1,0 +1,81 @@
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+body {
+  height: 100vh;
+}
+
+#principal .ctn {
+  padding-top: 80px;
+}
+
+button {
+  margin-right: 20px;
+  margin-top: 60px;
+  text-decoration: none;
+  text-transform: uppercase;
+  border: none;
+  width: 160px;
+  height: 50px;
+  font-size: 21px;
+  border-radius: 120px;
+}
+
+.texto {
+  width: 50%;
+  text-align: left;
+  text-transform: uppercase;
+  font-size: 39px;
+}
+
+aside {
+  width: 50%;
+}
+
+.imagem-menu {
+  width: 100%;
+}
+
+.top-menu {
+  padding-top: 71%;
+}
+
+.anunciar {
+  background-color: #44a5db;
+  color: white;
+}
+
+.vagas {
+  background-color: white;
+  color: #44a5db;
+  text-decoration: none;
+}
+
+@media screen and (max-width: 992px) {
+  .anunciar,
+  .vagas {
+    margin-top: 20px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  #principal .ctn {
+    padding-top: 50px;
+  }
+
+  .texto {
+    text-align: center;
+    width: 100%;
+  }
+
+  .anunciar,
+  .vagas {
+    margin-top: 20px;
+  }
+
+  .container-img {
+    display: none;
+  }
+}
