@@ -1,53 +1,64 @@
 #vagas {
-    padding-top: 100px;
+  padding-top: 100px;
 }
 
 #vagas-ctn {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  align-items: flex-start;
 }
 
 #vagas-ctn .card {
-    width: 350px;
-    height: 400px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    justify-content: flex-end;
-    border-radius: 8px;
+  width: 350px;
+  /* height: 400px; */
+  background-color: rgba(68, 165, 219, 0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-end;
+  border-radius: 8px;
+  cursor: pointer;
 }
 
 #vagas-ctn .card .front {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    backdrop-filter: blur(10px);
-    /* background-color: rgba(63, 61, 86, .7); */
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  backdrop-filter: blur(10px);
+  /* background-color: rgba(63, 61, 86, .7); */
 }
 
 #vagas-ctn .card .front .content-front {
-    padding: 12px;
+  padding: 12px;
 }
 
 #vagas-ctn .card .back {
-    display: none;
-    padding: 12px;
-    backdrop-filter: blur(10px);
-    /* background-color: rgba(63, 61, 86, .7); */
+  display: none;
+  padding: 12px;
+  backdrop-filter: blur(10px);
+  /* background-color: rgba(63, 61, 86, .7); */
 }
 
 .active {
-    display: flex !important;
-    gap: 3px;
-    flex-direction: column !important;
-    border-radius: 0 0 8px 8px;
-    /* align-items: center !important; */
+  display: flex !important;
+  gap: 3px;
+  flex-direction: column !important;
+  border-radius: 0 0 8px 8px;
+  /* align-items: center !important; */
+}
+
+@media screen and (max-width: 800px) {
+  #vagas-ctn {
+    justify-content: center;
+    align-content: center;
+    margin-top: 50px;
+  }
 }
 
 @media screen and (max-width: 768px) {
-    #vagas-ctn .card {
-        width: 300px;
-    }
+  #vagas-ctn .card {
+    width: 300px;
+  }
 }

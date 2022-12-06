@@ -1,3 +1,5 @@
+const vagasStorage = 'vagasStorage';
+
 const vagas = [
     {
         empresa: 'empresa 1',
@@ -11,6 +13,7 @@ const vagas = [
         beneficios: 'beneficios 1 beneficios beneficios beneficios beneficios beneficios',
         aitva: true,
         moderada: true,
+        img: '../img/americanas.webp'
     },
     {
         empresa: 'empresa 2',
@@ -24,6 +27,7 @@ const vagas = [
         beneficios: 'beneficios 2 beneficios beneficios beneficios beneficios beneficios',
         aitva: true,
         moderada: true,
+        img: '../img/havam.webp'
     },
     {
         empresa: 'empresa 3',
@@ -37,6 +41,7 @@ const vagas = [
         beneficios: 'beneficios 3 beneficios beneficios beneficios beneficios beneficios',
         aitva: true,
         moderada: true,
+        img: '../img/honda.jpg'
     },
     {
         empresa: 'empresa 4',
@@ -50,6 +55,7 @@ const vagas = [
         beneficios: 'beneficios 4 beneficios beneficios beneficios beneficios beneficios',
         aitva: true,
         moderada: true,
+        img: '../img/jhon-deere.webp'
     },
     {
         empresa: 'empresa 5',
@@ -63,6 +69,7 @@ const vagas = [
         beneficios: 'beneficios 5 beneficios beneficios beneficios beneficios beneficios',
         aitva: true,
         moderada: true,
+        img: '../img/pernabucanas.webp'
     },
     {
         empresa: 'empresa 6',
@@ -76,78 +83,62 @@ const vagas = [
         beneficios: 'beneficios 6 beneficios beneficios beneficios beneficios beneficios',
         aitva: true,
         moderada: true,
+        img: '../img/wolksvagen.jpeg'
     },
 ]
 
-function showJobs(){
-    const vagasSec = document.getElementById('vagas');
+function anunciarVaga() {
+    const tempArr = [];
+    let getVagasStorage = JSON.parse(window.localStorage.getItem(vagasStorage)) || false;
 
-    for (const x of vagas){
-        const card = document.createElement('div');
-        card.classList.add('card');
+    const empresa = document.getElementById('empresa').value;
+    const cargo = document.getElementById('cargo').value;
+    const email = document.getElementById('email').value;
+    const telefone = document.getElementById('telefone').value;
+    const descricao = document.getElementById('descricao').value;
+    const requisitos = document.getElementById('requisitos').value;
+    const salario = document.getElementById('salario').value;
+    const vaga = document.querySelector('input[name="tipo-cargo"]:checked').value;
+    const beneficios = document.getElementById('beneficios').value;
 
-        const front = document.createElement('div');
-        front.classList.add('front');
-        const back = document.createElement('div');
-        back.classList.add('back');
-
-        const img = document.createElement('img');
-        img.classList.add('img')
-
-        const empresa = document.createElement('h2');
-        empresa.classList.add('empresa');
-        empresa.innerHTML = 'Empresa: ' + x.empresa;
-
-        const cargo = document.createElement('p');
-        cargo.classList.add('cargo');
-        cargo.innerHTML = 'Cargo: ' + x.cargo;
-
-        const email = document.createElement('p');
-        email.classList.add('email');
-        email.innerHTML = 'E-mail: ' + x.email
-
-        const telefone = document.createElement('p');
-        telefone.classList.add('telefone');
-        telefone.innerHTML = 'Telefone: ' + x.telefone;
-
-        const descricao = document.createElement('p');
-        descricao.classList.add('descricao');
-        descricao.innerHTML = 'Descrição: ' + x.descricao;
-
-        const requisitos = document.createElement('p');
-        requisitos.classList.add('requisitos');
-        requisitos.innerHTML = 'Requisitos: ' + x.requisitos;
-
-        const salario = document.createElement('p');
-        salario.classList.add('salario');
-        salario.innerHTML = 'Salario: ' + x.salario;
-
-        const tipo = document.createElement('p');
-        tipo.classList.add('tipo');
-        tipo.innerHTML = 'Tipo de Vaga: ' + x.tipo;
-
-        const beneficios = document.createElement('p');
-        beneficios.classList.add('beneficio');
-        beneficios.innerHTML = 'Beneficios: ' + x.beneficios;
-
-        vagasSec.append(card);
-        
-        card.append(front);
-        card.append(back);
-
-        front.append(img);
-        front.append(empresa);
-        front.append(cargo);
-        front.append(tipo);
-
-        back.append(empresa);
-        back.append(tipo);
-        back.append(cargo);
-        back.append(email);
-        back.append(telefone);
-        back.append(descricao);
-        back.append(requisitos);
-        back.append(salario);
-        back.append(beneficios);
+    const novaVaga = {
+        empresa: empresa,
+        cargo: cargo,
+        email: email,
+        telefone: telefone,
+        descricao: descricao,
+        requisitos: requisitos,
+        salario: salario,
+        tipo: vaga,
+        beneficios: beneficios,
+        aitva: true,
+        moderada: true,
+        img: '../img/americanas.webp'
     }
+
+    if (!getVagasStorage){
+        window.localStorage.setItem(vagasStorage, JSON.stringify(vagas));
+        getVagasStorage = JSON.parse(window.localStorage.getItem(vagasStorage));
+    }
+
+    const pushedVaga = tempArr.concat(getVagasStorage, novaVaga);
+
+    if (empresa == '' || cargo == '' || !email.includes('@') || telefone.length < 14 || descricao == '' || requisitos == '' || salario == '' || vaga == '' || beneficios == '') {
+        alert('ERRO! \nVerifique se os campos estão preenchidos corretamente.');
+    } else {
+        window.localStorage.setItem(vagasStorage, JSON.stringify(pushedVaga))
+        document.location.reload(true)
+    }
+}
+
+const tel = document.getElementById('telefone') // Seletor do campo de telefone
+
+tel.addEventListener('keypress', (e) => mascaraTelefone(e.target.value)) // Dispara quando digitado no campo
+tel.addEventListener('change', (e) => mascaraTelefone(e.target.value)) // Dispara quando autocompletado o campo
+
+const mascaraTelefone = (valor) => {
+    valor = valor.replace(/\D/g, "")
+    valor = valor.replace(/^(\d{2})(\d)/g, "($1) $2")
+    valor = valor.replace(/(\d)(\d{4})$/, "$1-$2")
+    tel.value = valor // Insere o(s) valor(es) no campo
 }
